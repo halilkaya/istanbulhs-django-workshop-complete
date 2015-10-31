@@ -5,7 +5,7 @@ from app.models import Category, Post
 
 def index(request):
     data = {
-        'posts': Post.objects.order_by('-created_at'),
+        'posts': Post.objects.order_by('-created_at').filter(is_page=False),
     }
     return render(request, 'index.html', data)
 
