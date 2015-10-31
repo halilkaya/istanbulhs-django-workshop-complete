@@ -7,14 +7,14 @@
 
 {% for post in posts %}
 <h2>
-    <a href="#">{{ post }}</a>
+    <a href="{% url 'post_single' post.slug %}">{{ post }}</a>
 </h2>
 <p class="lead">
     Yazar: <b>{{ post.author }}</b>
 </p>
 <p><span class="glyphicon glyphicon-time"></span> {{ post.created_at }}</p>
-<hr>
 {% if post.thumbnail %}
+<hr>
 <center><img class="img-responsive" src="{{ post.thumbnail.url }}" alt=""></center>
 {% endif %}
 <hr>

@@ -8,3 +8,9 @@ def index(request):
         'posts': Post.objects.order_by('-created_at'),
     }
     return render(request, 'index.html', data)
+
+def post_single(request, post_slug):
+    data = {
+        'post': Post.objects.get(slug=post_slug)
+    }
+    return render(request, 'post_single.html', data)
