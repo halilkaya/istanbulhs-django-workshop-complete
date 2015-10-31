@@ -19,7 +19,7 @@
 {% endif %}
 <hr>
 <p>{{ post.content|truncatewords:"50" }}</p>
-<a class="btn btn-primary" href="#">Devamını oku <span class="glyphicon glyphicon-chevron-right"></span></a>
+<a class="btn btn-primary" href="{% url 'post_single' post.slug %}">Devamını oku <span class="glyphicon glyphicon-chevron-right"></span></a>
 
 <hr>
 {% endfor %}
