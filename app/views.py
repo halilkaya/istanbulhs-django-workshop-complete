@@ -23,6 +23,6 @@ def page(request, page_slug):
 
 def category(request, category_slug):
     category = Category.objects.get(slug=category_slug)
-    posts = Post.objects.order_by('-created_at').filter(category=category)
+    posts = Post.objects.order_by('-created_at').filter(category=category,is_page=False)
 
     return render(request, 'category.html', { 'category_posts': posts, 'category_single': category })
