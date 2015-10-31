@@ -46,7 +46,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                   {% for page in pages %}
-                    <li><a href="#">{{ page.title }}</a></li>
+                    <li><a href="{% url 'page' page.slug %}">{{ page.title }}</a></li>
                   {% endfor %}
                 </ul>
             </div>

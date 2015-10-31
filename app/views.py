@@ -14,3 +14,9 @@ def post_single(request, post_slug):
         'post': Post.objects.get(slug=post_slug)
     }
     return render(request, 'post_single.html', data)
+
+def page(reqest, page_slug):
+    data = {
+        'page': Post.objects.get(slug=page_slug)
+    }
+    return render(reqest, 'page.html',data)
