@@ -55,21 +55,22 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'blog.urls'
 
-# TEMPLATES = [
-#     {
-#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-#         'DIRS': [],
-#         'APP_DIRS': True,
-#         'OPTIONS': {
-#             'context_processors': [
-#                 'django.template.context_processors.debug',
-#                 'django.template.context_processors.request',
-#                 'django.contrib.auth.context_processors.auth',
-#                 'django.contrib.messages.context_processors.messages',
-#             ],
-#         },
-#     },
-# ]
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(os.path.dirname(__file__), "../templates")],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                'app.context_processor.category_list',
+            ],
+        },
+    },
+]
 
 WSGI_APPLICATION = 'blog.wsgi.application'
 
@@ -90,7 +91,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'tr-tr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Istanbul'
 
 USE_I18N = True
 
@@ -109,8 +110,4 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
 
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__), "../static"),
-)
-
-TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), "../templates"),
 )
