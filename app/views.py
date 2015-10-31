@@ -15,8 +15,14 @@ def post_single(request, post_slug):
     }
     return render(request, 'post_single.html', data)
 
-def page(reqest, page_slug):
+def page(request, page_slug):
     data = {
-        'page': Post.objects.get(slug=page_slug)
+        'post': Post.objects.get(slug=page_slug)
     }
-    return render(reqest, 'page.html',data)
+    return render(request, 'page.html',data)
+
+def category(request, category_slug):
+    category = Category.objects.get(slug=category_slug)
+    posts = Post.objects.order_by('-created_at').filter(category=category)
+
+    return render(request, 'category.html', { 'category_posts': posts, 'category_single': category })

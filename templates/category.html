@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{ category_single.name }}{% endblock %}
+
+{% block content %}
+
+{% for post in category_posts %}
+<h2>
+    <a href="{% url 'post_single' post.slug %}">{{ post }}</a>
+</h2>
+<p class="lead">
+    Yazar: <b>{{ post.author }}</b>
+</p>
+<p><span class="glyphicon glyphicon-time"></span> {{ post.created_at }}</p>
+{% if post.thumbnail %}
+<hr>
+<center><img class="img-responsive" src="{{ post.thumbnail.url }}" alt=""></center>
+{% endif %}
+<hr>
+<p>{{ post.content|truncatewords:"50" }}</p>
+<a class="btn btn-primary" href="{% url 'post_single' post.slug %}">Devamını oku <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+<hr>
+{% endfor %}
+
+
+{% endblock %}
