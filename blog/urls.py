@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^post/(?P<post_slug>[-_\w]+)/$', views.post_single, name='post_single'),
     url(r'^page/(?P<page_slug>[-_\w]+)/$', views.page, name='page'),
     url(r'^category/(?P<category_slug>[-_\w]+)/$', views.category, name='category_page'),
+    url(r'^search/$', views.post_search, name="search_form"),
     url(r'^$', views.index, name='index'),
 ]

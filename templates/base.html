@@ -78,12 +78,14 @@
                 <div class="well">
                     <h4>Arama</h4>
                     <div class="input-group">
-                        <input type="text" class="form-control">
+                      <form action="{% url 'search_form' %}" method="get">
+                        <input type="text" name='q' class="form-control">
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
+                            <button class="btn btn-default" type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
                         </button>
                         </span>
+                      </form>
                     </div>
                     <!-- /.input-group -->
                 </div>
