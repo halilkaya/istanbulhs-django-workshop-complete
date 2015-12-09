@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+
+<h2>
+    <a href="#">{{ post.title }}</a>
+</h2>
+<p class="lead">
+    Yazar: <b>{{ post.author }}</b>
+</p>
+<p><span class="glyphicon glyphicon-time"></span> {{ post.created_at }}</p>
+{% if post.thumbnail %}
+<hr>
+<center><img class="img-responsive" src="{{ post.thumbnail.url }}" alt=""></center>
+{% endif %}
+<hr>
+<p>{{ post.content }}</p>
+<hr>
+{% endblock %}

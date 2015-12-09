@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
-{% block page_title %}Ana Sayfa{% endblock %}
-{% block title %}Ana Sayfa{% endblock %}
+{% block page_title %}{{ text }}{% endblock %}
 
 {% block content %}
+{% if error %}
+    <h3>{{ error }}</h3>
+
+{% else %}
 
 {% for post in posts %}
 <h2>
@@ -24,14 +27,7 @@
 <hr>
 {% endfor %}
 
-<!-- Pager -->
-<ul class="pager">
-    <li class="previous">
-        <a href="#">&larr; Daha Eski</a>
-    </li>
-    <li class="next">
-        <a href="#">Daha Yeni &rarr;</a>
-    </li>
-</ul>
+{% endif %}
 
 {% endblock %}
+}}

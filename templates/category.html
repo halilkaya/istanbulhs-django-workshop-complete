@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
-{% block page_title %}Ana Sayfa{% endblock %}
-{% block title %}Ana Sayfa{% endblock %}
+{% block page_title %}{{ category_single.name }}{% endblock %}
 
 {% block content %}
 
-{% for post in posts %}
+{% for post in category_posts %}
 <h2>
     <a href="{% url 'post_single' post.slug %}">{{ post }}</a>
 </h2>
@@ -24,14 +23,5 @@
 <hr>
 {% endfor %}
 
-<!-- Pager -->
-<ul class="pager">
-    <li class="previous">
-        <a href="#">&larr; Daha Eski</a>
-    </li>
-    <li class="next">
-        <a href="#">Daha Yeni &rarr;</a>
-    </li>
-</ul>
 
 {% endblock %}
